@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Titan+One&family=Notable&display=swap');
+
+:root {
+    --fundocinema: #0b0b0d;
+    --fundocard: #1e1e24;
+    --paleta: #edeade;
+    --brilho: #ceecef;
+    --cor-fundo: #2a3651;
+    --cor-card: #134647;
+    --cor-destaque: #0c7e7e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding-bottom: 40px;
+    background-color: var(--fundocinema);
+    color: var(--paleta);
+    font-family: Arial, sans-serif;
+}
+
+/* Menu */
+
+.menu {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 16px 10px;
+    background-color: var(--fundocinema);
+    text-align: center;
+}
+
+.link {
+    display: inline-block;
+    margin: 6px 16px;
+    color: var(--cor-card);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: var(--cor-destaque);
+}
+
+/* Cartão de cadastro */
+
+.conteiner-cadastro {
+    width: min(460px, calc(100% - 32px));
+    margin: 55px auto;
+    padding: 32px;
+    background-color: var(--fundocinema);
+    border: 2px solid var(--cor-card);
+    border-radius: 12px;
+}
+
+.conteiner-cadastro:hover {
+    border-color: var(--cor-destaque);
+}
+
+.conteiner-ch1 h2 {
+    margin-bottom: 24px;
+    color: var(--cor-fundo);
+    font-family: 'Titan One', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+/* Campos */
+
+.cadastro-envio {
+    display: flex;
+    flex-direction: column;
+}
+
+.cadastro-envio label {
+    margin-bottom: 8px;
+    color: var(--cor-destaque);
+    font-family: 'Notable', sans-serif;
+    font-size: 0.9rem;
+}
+
+.cadastro-envio input {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    color: var(--paleta);
+    background-color: var(--fundocard);
+    border: 1px solid var(--cor-card);
+    border-radius: 7px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.cadastro-envio input::placeholder {
+    color: var(--brilho);
+    opacity: 0.7;
+}
+
+.cadastro-envio input:focus {
+    border-color: var(--cor-destaque);
+    outline: 2px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+/* Botão e mensagem */
+
+.cadastro-envio .card {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 10px;
+    padding: 10px;
+    color: var(--fundocinema);
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-card);
+    border-radius: 8px;
+    font-family: 'Titan One', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.cadastro-envio .card:hover {
+    background-color: var(--cor-destaque);
+}
+
+#cadMensagem {
+    margin-top: 16px;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* Celular */
+
+@media (max-width: 600px) {
+    .menu {
+        padding: 12px 6px;
+    }
+
+    .link {
+        margin: 6px 8px;
+        font-size: 1rem;
+    }
+
+    .conteiner-cadastro {
+        margin: 32px auto;
+        padding: 24px 20px;
+    }
+
+    .conteiner-ch1 h2 {
+        font-size: 1.8rem;
+    }
+}

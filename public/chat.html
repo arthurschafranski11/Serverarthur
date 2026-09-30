@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylechat.css">
+</head>
+
+<body>
+    <nav class="menu">
+        <a href="index.html" class="link">Home</a>
+        <a href="cadastro.html" class="link">Cadastro</a>
+        <a href="login.html" class="link">Login</a>
+        <a href="chat.html" class="link">Chat</a>
+    </nav>
+
+<div class="chatContainer">
+    <h2 id="boasVindas"> Seja bem vindo ao Chat</h2>
+    <div id="caixaChat"></div>
+
+    <div id="inputArea">
+        <input type="text" id="mensagem" placeholder="Digite sua mensagem">
+        <button id="btnEnviar">Enviar</button>
+
+    </div>
+</div>
+
+<script>
+const usuarioLogado='arthur'
+
+document.querySelector('#boasVindas').textContent=`Olá ${usuarioLogado}, seja bem vindo`
+const caixaChat=document.querySelector('#caixaChat')
+const inputMensagem=document.querySelector('#mensagem')
+const btnEnviar=document.querySelector('#btnEnviar')
+
+const historicoConversa=[ ]
+
+function mensagemTela (autor, texto){
+
+    const textoFinal=document.createElement('p')
+    textoFinal.className='msg'
+    textoFinal.textContent=`${autor}, ${texto}`
+    caixaChat.appendChild(textoFinal)}
+
+btnEnviar.addEventListener('click', async()=>{
+    const textoMensagem=inputMensagem.value.trim()
+
+    if (!textoMensagem)return
+
+    mensagemTela(usuarioLogado, textoMensagem)
+    historicoConversa.push({role:"user", content:textoMensagem})
+
+    inputMensagem.value=''
+    btnEnviar.disabled=true
+
+    try{
+        const respostaServidor= await fetch('/chat', {
+            method:'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ historico: historicoConversa})
+        })
+
+        const dados=  await respostaServidor.json()
+        if (!respostaServidor.ok) {
+
+       
+        mensagemTela('system',dados.erro )
+        return}
+
+        mensagemTela('neymar',dados.resposta )
+    }
+    catch(erro){
+        mensagemTela('Sistema', 'Erro ao conectar com o servidor')
+    }
+    finally{
+        btnEnviar.disabled=false
+    }
+
+})
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+   
+</body>
+</html>
