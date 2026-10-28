@@ -84,14 +84,16 @@
                 
                 emailEntrada.value = '';
                 senhaEntrada.value = '';
-                window.location='chat.html';
-                 usuarioLogado= usuarioEntrada
-            }
-            catch(erro) {
-                console.error('Erro na requisição:', erro);
-                loginMensagem.innerText = 'Erro ao conectar com o servidor!!';
-                loginMensagem.style.color = 'red';
-            }
+                localStorage.setItem('usuarioLogado', usuario);
+                window.location = 'chat.html';
+
+                
+            //}
+            //catch(erro) {
+                //console.error('Erro na requisição:', erro);
+               // loginMensagem.innerText = 'Erro ao conectar com o servidor!!';
+               // loginMensagem.style.color = 'red';
+            //}
         });
     </script>
 </body>
