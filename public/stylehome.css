@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neymar & Amigos - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Pequeno ajuste extra para garantir legibilidade do texto descritivo minúsculo */
+        .descricao-player {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            text-transform: none; /* Evita que a fonte Notable force tudo em maiúsculo caso queira ler melhor */
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="menu">
+        <a href="index.html" class="link">Home</a>
+        <a href="cadastro.html" class="link">Cadastro</a>
+        <a href="login.html" class="link">Login</a>
+        <a href="chat.html" class="link">Chat</a>
+    </nav>
+
+    <main class="vitrine">
+        
+        <!-- Perfil do Neymar -->
+        <article class="player">
+            <img src="ultima.jpg" alt="Neymar" class="foto-player">
+            <h2 class="titulo">Neymar</h2>
+            <p class="descricao-player">O craque da camisa 10, maior artilheiro da história da Seleção Brasileira e o anfitrião do site. Conhecido mundialmente por sua ousadia e alegria.</p>
+            <button class="button">Saiba mais</button>
+        </article>
+
+        <!-- Amigo 1: Messi -->
+        <article class="player">
+            <img src="messi.jpg" alt="Lionel Messi" class="foto-player">
+            <h2 class="titulo">Messi</h2>
+            <p class="descricao-player">Mais que um companheiro lendário de ataque no Barcelona e no PSG, um dos melhores amigos que o futebol deu ao Ney fora das quatro linhas.</p>
+            <button class="button">Saiba mais</button>
+        </article>
+
+        <!-- Amigo 2: Suárez -->
+        <article class="player">
+            <img src="suarez.jpg" alt="Luis Suárez" class="foto-player">
+            <h2 class="titulo">Suárez</h2>
+            <p class="descricao-player">O terceiro elemento do histórico trio MSN. Parceiro de grandes conquistas, churrascos e eternas resenhas com o craque brasileiro.</p>
+            <button class="button">Saiba mais</button>
+        </article>
+
+        <!-- Amigo 3: Ganso -->
+        <article class="player">
+            <img src="ganso.jpg" alt="Paulo Henrique Ganso" class="foto-player">
+            <h2 class="titulo">P.H. Ganso</h2>
+            <p class="descricao-player">A icônica dupla dos tempos dourados de Santos FC. O maestro clássico que cansou de dar assistências geniais para os gols do Ney.</p>
+            <button class="button">Saiba mais</button>
+        </article>
+
+    </main>
+
+</body>
+</html>
