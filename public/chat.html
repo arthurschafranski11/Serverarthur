@@ -27,7 +27,7 @@
 </div>
 
 <script>
-const usuarioLogado='arthur'
+const usuarioLogado= localStorage.getItem('usuarioEntrada')
 
 document.querySelector('#boasVindas').textContent=`Olá ${usuarioLogado}, seja bem vindo`
 const caixaChat=document.querySelector('#caixaChat')
