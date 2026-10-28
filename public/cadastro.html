@@ -77,7 +77,10 @@
                     cadMensagem.style.color = 'red';
                     return;
                 }
+                localStorage.setItem('usuarioLogado', usuario); 
+                window.location = 'login.html';
 
+                
                 cadMensagem.innerText = `${dados.mensagem}: ${dados.perfil}`;
                 cadMensagem.style.color = 'green';
 
@@ -87,7 +90,7 @@
                 emailEntrada.value = '';
                 senhaEntrada.value = '';
 
-                window.location = 'login.html'; 
+               
                 }
             catch(erro) {
                 console.error('Erro na requisição:', erro);
