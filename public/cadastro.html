@@ -81,12 +81,14 @@
                 cadMensagem.innerText = `${dados.mensagem}: ${dados.perfil}`;
                 cadMensagem.style.color = 'green';
 
+                localStorage.setItem('usuarioLogado', usuario);
+
                 usuarioEntrada.value = '';
                 emailEntrada.value = '';
                 senhaEntrada.value = '';
-                window.location='login.html'
-                usuarioLogado= usuarioEntrada
-            }
+
+                window.location = 'login.html'; 
+                }
             catch(erro) {
                 console.error('Erro na requisição:', erro);
                 cadMensagem.innerText = 'Erro ao conectar com o servidor!!';
