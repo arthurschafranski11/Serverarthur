@@ -67,7 +67,6 @@ body{
     text-align: center;
     padding-bottom: 10px;
 }
-
 #caixaChat {
     height: 400px;
     background-color: #050507;
@@ -75,6 +74,8 @@ body{
     border-radius: 8px;
     padding: 15px;
     overflow-y: auto;
+    
+    /* ADICIONADO: Ativa o alinhamento individual das mensagens */
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -90,13 +91,16 @@ body{
     font-size: 1rem;
     color: var(--paleta);
     word-break: break-word;
+    
+    /* ADICIONADO: Garante estabilidade nos cantos */
+    width: fit-content; 
 }
 
 /* Suas mensagens (Arthur/Roberson) -> Direita */
 .msg-usuario {
     background-color: var(--cor-fundo);
     border: 1px solid var(--cor-card);
-    align-self: flex-end; /* Joga para a direita */
+    align-self: flex-end; /* Alinha no canto direito */
 }
 
 /* Resposta do Neymar -> Esquerda */
@@ -106,7 +110,7 @@ body{
     color: var(--cor-destaque);
     font-family: 'Notable', sans-serif;
     font-size: 0.9rem;
-    align-self: flex-start; /* Joga para a esquerda */
+    align-self: flex-start; /* Alinha no canto esquerdo */
 }
 
 /* Mensagens do Sistema -> Centro */
@@ -118,6 +122,7 @@ body{
     font-size: 0.85rem;
     text-align: center;
 }
+
 
 /* Área de Input de Texto e Botão */
 #inputArea {
