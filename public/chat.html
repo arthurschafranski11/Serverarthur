@@ -27,9 +27,9 @@
 </div>
 
 <script>
-const usuarioLogado = localStorage.getItem('usuarioChat');
+const usuarioLogado = localStorage.getItem('usuarioLogado');
 
-if (!usuarioChat) {
+if (!usuarioLogado) {
     alert('Você precisa fazer seu cadastro e login primeiro!');
     window.location.href = 'cadastro.html';
 }
