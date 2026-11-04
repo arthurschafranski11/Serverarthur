@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Notable&family=Story+Script&family=Titan+One&display=swap');
-
 *{
     margin: 0;
     padding: 0;
@@ -25,7 +24,6 @@ body{
     flex-direction: column;
 }
 
-/* Menu de Navegação Superior (Igual ao seu style.css principal) */
 .menu{
     position: sticky;
     top: 0px;
@@ -45,7 +43,6 @@ body{
     display: inline-block;
 }
 
-/* Estrutura Central da Caixa de Chat */
 .chatContainer {
     background-color: var(--fundocinema);
     border: 3px solid var(--cor-card);
@@ -67,6 +64,7 @@ body{
     text-align: center;
     padding-bottom: 10px;
 }
+
 #caixaChat {
     height: 400px;
     background-color: #050507;
@@ -74,14 +72,11 @@ body{
     border-radius: 8px;
     padding: 15px;
     overflow-y: auto;
-    
-    /* ADICIONADO: Ativa o alinhamento individual das mensagens */
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-/* Configuração base para todas as mensagens */
 .msg {
     margin: 0;
     padding: 10px 14px;
@@ -91,29 +86,24 @@ body{
     font-size: 1rem;
     color: var(--paleta);
     word-break: break-word;
-    
-    /* ADICIONADO: Garante estabilidade nos cantos */
     width: fit-content; 
 }
 
-/* Suas mensagens (Arthur/Roberson) -> Direita */
 .msg-usuario {
     background-color: var(--cor-fundo);
     border: 1px solid var(--cor-card);
-    align-self: flex-end; /* Alinha no canto direito */
+    align-self: flex-start;
 }
 
-/* Resposta do Neymar -> Esquerda */
 .msg-neymar {
     background-color: var(--fundocard);
     border: 2px solid var(--cor-destaque);
     color: var(--cor-destaque);
     font-family: 'Notable', sans-serif;
     font-size: 0.9rem;
-    align-self: flex-start; /* Alinha no canto esquerdo */
+    align-self: flex-end;
 }
 
-/* Mensagens do Sistema -> Centro */
 .msg-sistema {
     background-color: #291212;
     border: 1px solid #ff4444;
@@ -123,8 +113,6 @@ body{
     text-align: center;
 }
 
-
-/* Área de Input de Texto e Botão */
 #inputArea {
     display: flex;
     gap: 10px;
@@ -168,7 +156,6 @@ body{
     cursor: not-allowed;
 }
 
-/* Responsividade de Enquadramento do Celular */
 @media (max-width: 600px) {
     .menu {
         padding: 12px 6px;
