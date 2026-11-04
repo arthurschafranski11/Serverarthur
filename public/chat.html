@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chat</title>
     <link rel="stylesheet" href="stylechat.css">
 </head>
 
@@ -22,81 +22,73 @@
     <div id="inputArea">
         <input type="text" id="mensagem" placeholder="Digite sua mensagem">
         <button id="btnEnviar">Enviar</button>
-
     </div>
 </div>
 
 <script>
-const usuarioLogado = localStorage.getItem('usuarioLogado');
+const itemSalvo = localStorage.getItem('usuarioLogado');
 
-if (!usuarioLogado) {
+if (!itemSalvo) {
     alert('Você precisa fazer seu cadastro e login primeiro!');
     window.location.href = 'cadastro.html';
 }
 
-document.querySelector('#boasVindas').textContent=`Olá ${usuarioLogado}, seja bem vindo`
-const caixaChat=document.querySelector('#caixaChat')
-const inputMensagem=document.querySelector('#mensagem')
-const btnEnviar=document.querySelector('#btnEnviar')
+let usuarioLogado = itemSalvo;
+try { 
+    const dadosConvertidos = JSON.parse(itemSalvo);
+    usuarioLogado = dadosConvertidos.usuario || usuarioLogado; 
+} catch(e) {}
 
-const historicoConversa=[ ]
+document.querySelector('#boasVindas').textContent = `Olá ${usuarioLogado}, seja bem vindo`;
+
+const caixaChat = document.querySelector('#caixaChat');
+const inputMensagem = document.querySelector('#mensagem');
+const btnEnviar = document.querySelector('#btnEnviar');
+
+const historicoConversa = [];
 
 function mensagemTela (autor, texto){
-
-    const textoFinal=document.createElement('p')
-    textoFinal.className='msg'
-    textoFinal.textContent=`${autor}, ${texto}`
-    caixaChat.appendChild(textoFinal)}
+    const textoFinal = document.createElement('p');
+    textoFinal.className = 'msg';
+    textoFinal.textContent = `${autor}: ${texto}`;
+    caixaChat.appendChild(textoFinal);
+    caixaChat.scrollTop = caixaChat.scrollHeight;
+}
 
 btnEnviar.addEventListener('click', async()=>{
-    const textoMensagem=inputMensagem.value.trim()
+    const textoMensagem = inputMensagem.value.trim();
 
-    if (!textoMensagem)return
+    if (!textoMensagem) return;
 
-    mensagemTela(usuarioLogado, textoMensagem)
-    historicoConversa.push({role:"user", content:textoMensagem})
+    mensagemTela(usuarioLogado, textoMensagem);
+    historicoConversa.push({ role: "user", content: textoMensagem });
 
-    inputMensagem.value=''
-    btnEnviar.disabled=true
+    inputMensagem.value = '';
+    btnEnviar.disabled = true;
 
-    try{
-        const respostaServidor= await fetch('/chat', {
-            method:'POST',
+    try {
+        const respostaServidor = await fetch('/chat', {
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ historico: historicoConversa})
-        })
+            body: JSON.stringify({ historico: historicoConversa })
+        });
 
-        const dados=  await respostaServidor.json()
+        const dados = await respostaServidor.json();
         if (!respostaServidor.ok) {
+            mensagemTela('system', dados.erro);
+            return;
+        }
 
-       
-        mensagemTela('system',dados.erro )
-        return}
-
-        mensagemTela('neymar',dados.resposta )
+        mensagemTela('Chat do menino ney', dados.resposta);
     }
-    catch(erro){
-        mensagemTela('Sistema', 'Erro ao conectar com o servidor')
+    catch (erro) {
+        mensagemTela('Sistema', 'Erro ao conectar com o servidor');
     }
-    finally{
-        btnEnviar.disabled=false
+    finally {
+        btnEnviar.disabled = false;
     }
-
-})
-
-
-
-
-
-
-
-
-
+});
 </script>
-
-
-
-
    
 </body>
 </html>
