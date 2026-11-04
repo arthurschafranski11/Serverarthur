@@ -80,7 +80,7 @@ body{
     gap: 12px;
 }
 
-/* Estilização das Mensagens de Texto */
+/* Configuração base para todas as mensagens */
 .msg {
     margin: 0;
     padding: 10px 14px;
@@ -92,25 +92,25 @@ body{
     word-break: break-word;
 }
 
-/* Mensagem enviada pelo Usuário Arthur (Alinhada à direita) */
-.msg:not(.msg-neymar):not(.msg-sistema):not(.msg-system) {
+/* Suas mensagens (Arthur/Roberson) -> Direita */
+.msg-usuario {
     background-color: var(--cor-fundo);
     border: 1px solid var(--cor-card);
-    align-self: flex-end;
+    align-self: flex-end; /* Joga para a direita */
 }
 
-/* Mensagem recebida da IA Neymar (Alinhada à esquerda) */
+/* Resposta do Neymar -> Esquerda */
 .msg-neymar {
     background-color: var(--fundocard);
     border: 2px solid var(--cor-destaque);
     color: var(--cor-destaque);
     font-family: 'Notable', sans-serif;
     font-size: 0.9rem;
-    align-self: flex-start;
+    align-self: flex-start; /* Joga para a esquerda */
 }
 
-/* Mensagens de Erro/Sistema (Centralizadas) */
-.msg-sistema, .msg-system {
+/* Mensagens do Sistema -> Centro */
+.msg-sistema {
     background-color: #291212;
     border: 1px solid #ff4444;
     color: #ff8888;
