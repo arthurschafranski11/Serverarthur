@@ -49,7 +49,15 @@ const historicoConversa = [];
 
 function mensagemTela (autor, texto){
     const textoFinal = document.createElement('p');
-    textoFinal.className = 'msg';
+    
+    if (autor === usuarioLogado) {
+        textoFinal.className = 'msg msg-usuario';
+    } else if (autor === 'system' || autor === 'Sistema') {
+        textoFinal.className = 'msg msg-sistema';
+    } else {
+        textoFinal.className = 'msg msg-neymar';
+    }
+    
     textoFinal.textContent = `${autor}: ${texto}`;
     caixaChat.appendChild(textoFinal);
     caixaChat.scrollTop = caixaChat.scrollHeight;
