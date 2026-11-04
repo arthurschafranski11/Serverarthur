@@ -1,216 +1,169 @@
-/* stylechat.css */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Notable&family=Story+Script&family=Titan+One&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Titan+One&display=swap');
-
-:root {
-    --fundocinema: #0b0b0d;
-    --fundocard: #1e1e24;
-    --paleta: #edeade;
-    --brilho: #ceecef;
-    --cor-fundo: #2a3651;
-    --cor-card: #134647;
-    --cor-destaque: #0c7e7e;
-}
-
-/* Configurações Gerais da Tela */
-body {
-    background-color: #0b0f12;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+*{
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --fundocinema:#0b0b0d; 
+    --fundocard:#1e1e24;
+    --paleta:#edeade; 
+    --brilho:#ceecef; 
+    --cor-fundo: #2a3651;      
+    --cor-card: #134647;       
+    --cor-destaque: #0c7e7e;    
+}
+
+body{
+    background-color: var(--fundocinema);
+    color: var(--paleta);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-/* Menu de Navegação Superior */
-.menu {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-.menu .link {
-    color: #00ffcc;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-}
-
-.menu .link:hover {
-    color: #00b3ff;
-}
-
-/* Container dos Cards dos Jogadores */
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1100px;
-    margin-bottom: 40px;
-}
-
-/* Estilo individual de cada Card (Idêntico ao da imagem) */
-.card {
-    background-color: #0d161b;
-    border: 2px solid #143542;
-    border-radius: 8px;
-    padding: 15px;
+/* Menu de Navegação Superior (Igual ao seu style.css principal) */
+.menu{
+    position: sticky;
+    top: 0px;
+    padding: 20px;
+    background-color: var(--fundocinema);
     text-align: center;
+    z-index: 1000;
+}
+
+.link{
+    text-decoration: none;
+    font-family: 'archivo black';
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin: 0 20px;
+    color: var(--cor-card);
+    display: inline-block;
+}
+
+/* Estrutura Central da Caixa de Chat */
+.chatContainer {
+    background-color: var(--fundocinema);
+    border: 3px solid var(--cor-card);
+    border-radius: 12px;
+    width: 95%;
+    max-width: 600px;
+    padding: 25px;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-.card img {
-    width: 100%;
-    border-radius: 4px;
-    border: 1px solid #1a4254;
-    object-fit: cover;
-}
-
-.card h3 {
-    color: #7b889b;
-    font-size: 1.4rem;
-    margin: 15px 0 10px 0;
-    text-shadow: 0 0 5px rgba(123, 136, 155, 0.3);
-}
-
-.card p {
-    color: #00ffcc;
-    font-size: 0.85rem;
-    line-height: 1.4;
-    text-align: left;
-    margin-bottom: 15px;
-    text-transform: uppercase; /* Deixa o texto em caixa alta como na imagem */
-}
-
-.btn-saiba-mais {
-    background-color: #102633;
-    border: 1px solid #00b3ff;
-    color: #00b3ff;
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s;
-}
-
-.btn-saiba-mais:hover {
-    background-color: #00b3ff;
-    color: #000;
-}
-
-/* Estrutura da Caixa de Chat */
-.chatContainer {
-    background-color: #0d161b;
-    border: 2px solid #00ffcc;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+    gap: 20px;
 }
 
 #boasVindas {
-    margin-top: 0;
-    color: #ffffff;
-    font-size: 1.3rem;
-    border-bottom: 1px solid #143542;
+    font-family: 'titan one';
+    letter-spacing: 2px;
+    font-size: 1.8rem;
+    color: var(--cor-fundo);
+    text-align: center;
     padding-bottom: 10px;
 }
 
 #caixaChat {
-    height: 300px;
-    background-color: #070b0e;
-    border: 1px solid #143542;
-    border-radius: 6px;
+    height: 400px;
+    background-color: #050507;
+    border: 2px solid var(--cor-card);
+    border-radius: 8px;
     padding: 15px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 12px;
 }
 
 /* Estilização das Mensagens de Texto */
 .msg {
     margin: 0;
-    padding: 8px 12px;
-    border-radius: 6px;
+    padding: 10px 14px;
+    border-radius: 10px;
     max-width: 85%;
     line-height: 1.4;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    color: var(--paleta);
+    word-break: break-word;
 }
 
 /* Mensagem enviada pelo Usuário Arthur (Alinhada à direita) */
-.msg-arthur {
-    background-color: #102633;
-    border-left: 4px solid #00b3ff;
+.msg:not(.msg-neymar):not(.msg-sistema):not(.msg-system) {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-card);
     align-self: flex-end;
 }
 
 /* Mensagem recebida da IA Neymar (Alinhada à esquerda) */
 .msg-neymar {
-    background-color: #162923;
-    border-left: 4px solid #00ffcc;
+    background-color: var(--fundocard);
+    border: 2px solid var(--cor-destaque);
+    color: var(--cor-destaque);
+    font-family: 'Notable', sans-serif;
+    font-size: 0.9rem;
     align-self: flex-start;
 }
 
 /* Mensagens de Erro/Sistema (Centralizadas) */
 .msg-sistema, .msg-system {
     background-color: #291212;
-    border-left: 4px solid #ff4444;
+    border: 1px solid #ff4444;
+    color: #ff8888;
     align-self: center;
     font-size: 0.85rem;
+    text-align: center;
 }
 
 /* Área de Input de Texto e Botão */
 #inputArea {
     display: flex;
     gap: 10px;
+    width: 100%;
 }
 
 #mensagem {
     flex: 1;
-    background-color: #070b0e;
-    border: 1px solid #143542;
-    border-radius: 5px;
+    background-color: #050507;
+    border: 2px solid var(--cor-card);
+    border-radius: 10px;
     padding: 12px;
-    color: #fff;
+    color: var(--paleta);
     font-size: 1rem;
 }
 
 #mensagem:focus {
     outline: none;
-    border-color: #00ffcc;
+    border-color: var(--cor-destaque);
 }
 
 #btnEnviar {
-    background-color: #00ffcc;
-    color: #000000;
-    border: none;
-    padding: 0 20px;
-    border-radius: 5px;
-    font-weight: bold;
+    background-color: var(--cor-fundo);
+    color: var(--paleta);
+    font-family: 'titan one';
+    border: 2px solid var(--cor-card);
+    padding: 0 25px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 #btnEnviar:hover {
-    background-color: #00b3ff;
+    background-color: var(--cor-destaque);
 }
 
 #btnEnviar:disabled {
-    background-color: #334e48;
-    color: #777;
+    background-color: var(--fundocard);
+    color: #555;
+    border-color: #333;
     cursor: not-allowed;
 }
+
+/* Responsividade de Enquadramento do Celular */
 @media (max-width: 600px) {
     .menu {
         padding: 12px 6px;
@@ -218,15 +171,40 @@ body {
 
     .link {
         margin: 6px 8px;
-        font-size: 1rem;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
     }
 
-    .conteiner-cadastro {
-        margin: 32px auto;
-        padding: 24px 20px;
+    .chatContainer {
+        width: 92%;
+        padding: 15px;
+        margin: 10px auto;
     }
 
-    .conteiner-ch1 h2 {
-        font-size: 1.8rem;
+    #boasVindas {
+        font-size: 1.3rem;
+    }
+
+    #caixaChat {
+        height: 320px;
+        padding: 10px;
+    }
+
+    .msg {
+        font-size: 0.95rem;
+        max-width: 90%;
+    }
+
+    #inputArea {
+        gap: 6px;
+    }
+
+    #mensagem {
+        padding: 10px;
+    }
+
+    #btnEnviar {
+        padding: 0 15px;
+        font-size: 0.9rem;
     }
 }
