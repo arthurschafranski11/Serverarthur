@@ -27,7 +27,12 @@
 </div>
 
 <script>
-const usuarioLogado = localStorage.getItem('usuarioLogado') || 'Convidado';
+const usuarioLogado = localStorage.getItem('usuarioChat');
+
+if (!usuarioLogado) {
+    alert('Você precisa fazer seu cadastro e login primeiro!');
+    window.location.href = 'cadastro.html';
+}
 
 document.querySelector('#boasVindas').textContent=`Olá ${usuarioLogado}, seja bem vindo`
 const caixaChat=document.querySelector('#caixaChat')
