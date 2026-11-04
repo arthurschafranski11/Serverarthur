@@ -211,3 +211,22 @@ body {
     color: #777;
     cursor: not-allowed;
 }
+@media (max-width: 600px) {
+    .menu {
+        padding: 12px 6px;
+    }
+
+    .link {
+        margin: 6px 8px;
+        font-size: 1rem;
+    }
+
+    .conteiner-cadastro {
+        margin: 32px auto;
+        padding: 24px 20px;
+    }
+
+    .conteiner-ch1 h2 {
+        font-size: 1.8rem;
+    }
+}
