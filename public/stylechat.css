@@ -1,4 +1,4 @@
-@import url('https://googleapis.com');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Notable&family=Story+Script&family=Titan+One&display=swap');
 
 *{
     margin: 0;
@@ -25,6 +25,7 @@ body{
     flex-direction: column;
 }
 
+/* Menu de Navegação Superior (Igual ao seu style.css principal) */
 .menu{
     position: sticky;
     top: 0px;
@@ -44,6 +45,7 @@ body{
     display: inline-block;
 }
 
+/* Estrutura Central da Caixa de Chat */
 .chatContainer {
     background-color: var(--fundocinema);
     border: 3px solid var(--cor-card);
@@ -78,6 +80,7 @@ body{
     gap: 12px;
 }
 
+/* Estilização das Mensagens de Texto */
 .msg {
     margin: 0;
     padding: 10px 14px;
@@ -89,12 +92,14 @@ body{
     word-break: break-word;
 }
 
-.msg-usuario {
+/* Mensagem enviada pelo Usuário Arthur (Alinhada à direita) */
+.msg:not(.msg-neymar):not(.msg-sistema):not(.msg-system) {
     background-color: var(--cor-fundo);
     border: 1px solid var(--cor-card);
     align-self: flex-end;
 }
 
+/* Mensagem recebida da IA Neymar (Alinhada à esquerda) */
 .msg-neymar {
     background-color: var(--fundocard);
     border: 2px solid var(--cor-destaque);
@@ -104,7 +109,8 @@ body{
     align-self: flex-start;
 }
 
-.msg-sistema {
+/* Mensagens de Erro/Sistema (Centralizadas) */
+.msg-sistema, .msg-system {
     background-color: #291212;
     border: 1px solid #ff4444;
     color: #ff8888;
@@ -113,6 +119,7 @@ body{
     text-align: center;
 }
 
+/* Área de Input de Texto e Botão */
 #inputArea {
     display: flex;
     gap: 10px;
@@ -156,6 +163,7 @@ body{
     cursor: not-allowed;
 }
 
+/* Responsividade de Enquadramento do Celular */
 @media (max-width: 600px) {
     .menu {
         padding: 12px 6px;
